@@ -12,16 +12,10 @@ public class ScoreFactory : MonoBehaviour {
 
     void Start()
     {
-        GameObject.Find("bird").GetComponent<BirdController>().ScoreAdd += OnScoreAdd;
+        GetComponent<Observer>().AddEventHandler("ScoreAdd", OnScoreAdd);
         currentScore = 10;
         scoreRenderer_1.sprite = scores[0];
         scoreRenderer_0.enabled = false;
-    }
-
-    void OnDestroy()
-    {
-        if (GameObject.Find("bird"))
-            GameObject.Find("bird").GetComponent<BirdController>().ScoreAdd -= OnScoreAdd;
     }
 
     void OnScoreAdd(object sender, EventArgs e) {

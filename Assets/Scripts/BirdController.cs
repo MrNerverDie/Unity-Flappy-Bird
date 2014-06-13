@@ -5,9 +5,6 @@ using System;
 public class BirdController : MonoBehaviour {
     public float speed;
 
-    public event EventHandler GameOver;
-    public event EventHandler ScoreAdd;
-
 	// Use this for initialization
 
 	// Update is called once per frame
@@ -20,18 +17,14 @@ public class BirdController : MonoBehaviour {
 	}
 
     void OnTriggerExit2D(Collider2D col) {
-        if (col.gameObject.name.Equals("empty")) {
-            if (ScoreAdd != null)
-                ScoreAdd(this, EventArgs.Empty);
-        }
+        NotificationCenter.GetInstance().PostNotification("ScoreAdd");
     }
 
 
     void OnCollisionEnter2D(Collision2D col)
     {
         rigidbody2D.velocity = new Vector2(0, 0);
-        if (GameOver != null)
-            GameOver(this, EventArgs.Empty);
+        NotificationCenter.GetInstance().PostNotification("GameOver");
         this.enabled = false;
     }
 

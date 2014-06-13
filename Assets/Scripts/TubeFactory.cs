@@ -15,16 +15,10 @@ public class TubeFactory : MonoBehaviour {
 	void Start () {
         Random.seed = System.DateTime.Today.Millisecond;
 
-        GameObject.Find("bird").GetComponent<BirdController>().GameOver += OnGameOver;
+        GetComponent<Observer>().AddEventHandler("GameOver", OnGameOver);
 
         StartCoroutine(CreateTube());    
 	}
-
-    void OnDestroy()
-    {
-        if (GameObject.Find("bird"))
-            GameObject.Find("bird").GetComponent<BirdController>().GameOver -= OnGameOver;
-    }
 
     IEnumerator CreateTube() {
         yield return new WaitForSeconds(waitTime);
