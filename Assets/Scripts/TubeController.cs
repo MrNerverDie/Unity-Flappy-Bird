@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 
 public class TubeController : MonoBehaviour {
@@ -15,7 +16,8 @@ public class TubeController : MonoBehaviour {
             GameObject.Find("bird").GetComponent<BirdController>().GameOver -= OnGameOver;
     }
 
-    void OnGameOver(){
+    void OnGameOver(object sender, EventArgs e)
+    {
         rigidbody2D.velocity = new Vector2(0, 0);
     }
 

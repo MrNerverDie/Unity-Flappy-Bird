@@ -41,7 +41,8 @@ public class TubeFactory : MonoBehaviour {
         Destroy(instance.gameObject);
     }
 
-    public void OnGameOver() {
+    public void OnGameOver(object sender, System.EventArgs e)
+    {
         StopAllCoroutines();
     }
 }

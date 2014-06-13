@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class BirdController : MonoBehaviour {
     public float speed;
 
-    public event CallFunc GameOver;
-    public event CallFunc ScoreAdd;
+    public event EventHandler GameOver;
+    public event EventHandler ScoreAdd;
 
 	// Use this for initialization
 
@@ -21,7 +22,7 @@ public class BirdController : MonoBehaviour {
     void OnTriggerExit2D(Collider2D col) {
         if (col.gameObject.name.Equals("empty")) {
             if (ScoreAdd != null)
-                ScoreAdd();
+                ScoreAdd(this, EventArgs.Empty);
         }
     }
 
@@ -30,7 +31,7 @@ public class BirdController : MonoBehaviour {
     {
         rigidbody2D.velocity = new Vector2(0, 0);
         if (GameOver != null)
-            GameOver();
+            GameOver(this, EventArgs.Empty);
         this.enabled = false;
     }
 

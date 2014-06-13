@@ -47,8 +47,9 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\BirdController.cs" />
-     <Compile Include="Assets\Scripts\CallFunc.cs" />
      <Compile Include="Assets\Scripts\FileUtils.cs" />
+     <Compile Include="Assets\Scripts\NotificationCenter.cs" />
+     <Compile Include="Assets\Scripts\Observer.cs" />
      <Compile Include="Assets\Scripts\ScoreFactory.cs" />
      <Compile Include="Assets\Scripts\TubeController.cs" />
      <Compile Include="Assets\Scripts\TubeFactory.cs" />

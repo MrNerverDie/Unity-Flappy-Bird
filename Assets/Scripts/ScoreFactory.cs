@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class ScoreFactory : MonoBehaviour {
 
@@ -23,7 +24,7 @@ public class ScoreFactory : MonoBehaviour {
             GameObject.Find("bird").GetComponent<BirdController>().ScoreAdd -= OnScoreAdd;
     }
 
-    void OnScoreAdd() {
+    void OnScoreAdd(object sender, EventArgs e) {
         currentScore++;
         scoreRenderer_1.sprite = scores[currentScore % 10];
         scoreRenderer_0.sprite = scores[currentScore / 10];
