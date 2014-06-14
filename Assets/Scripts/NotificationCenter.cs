@@ -3,6 +3,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
+// NotificationCenter的拓展类，在这里弄出多个INotificationCenter的子类，
+// 分别处理不同的消息转发，便于消息分组
 public class NotificationCenter : INotificationCenter
 {
     private static INotificationCenter singleton;
@@ -26,6 +28,7 @@ public class NotificationCenter : INotificationCenter
     }
 }
 
+// NotificationCenter的抽象基类
 public abstract class INotificationCenter
 {
 
@@ -36,6 +39,7 @@ public abstract class INotificationCenter
         eventTable = new Dictionary<string, EventHandler>();
     }
 
+    // PostNotification -- 将名字为name，发送者为sender，参数为e的消息发送出去
     public void PostNotification(string name)
     {
         this.PostNotification(name, null, EventArgs.Empty);
@@ -52,6 +56,7 @@ public abstract class INotificationCenter
         }
     }
 
+    // 添加或者移除了一个回调函数。
     public void AddEventHandler(string name, EventHandler handler)
     {
         eventTable[name] += handler;
