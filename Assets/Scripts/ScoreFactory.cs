@@ -13,7 +13,7 @@ public class ScoreFactory : MonoBehaviour {
     void Start()
     {
         GetComponent<Observer>().AddEventHandler("ScoreAdd", OnScoreAdd);
-        currentScore = 10;
+        currentScore = 0;
         scoreRenderer_1.sprite = scores[0];
         scoreRenderer_0.enabled = false;
     }

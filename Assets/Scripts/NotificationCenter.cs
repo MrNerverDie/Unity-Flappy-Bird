@@ -46,7 +46,7 @@ public abstract class INotificationCenter
     }
     public void PostNotification(string name, object sender)
     {
-        this.PostNotification(name, name, EventArgs.Empty);
+        this.PostNotification(name, sender, EventArgs.Empty);
     }
     public void PostNotification(string name, object sender, EventArgs e)
     {
